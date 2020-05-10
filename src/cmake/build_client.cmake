@@ -12,7 +12,8 @@ if(BUILD_CLIENT)
     set(client_deps ZLIB::ZLIB SDL2::Main SDL2::Image SDL2::Mixer OpenGL::GL enet)
 
     # platform specific code
-    if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+    # high chance it's an UNIX-like OS here, treat it like Linux
+    if(${CMAKE_SYSTEM_NAME} MATCHES "Linux" OR "unknown")
         find_package(PkgConfig REQUIRED)
         pkg_check_modules(x11 x11 REQUIRED IMPORTED_TARGET)
         list(APPEND client_deps PkgConfig::x11 rt)
