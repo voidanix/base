@@ -19,6 +19,9 @@ set(CMAKE_EXTRA_INCLUDE_FILES "sys/types.h" "sys/socket.h")
 check_type_size("socklen_t" HAS_SOCKLEN_T BUILTIN_TYPES_ONLY)
 unset(CMAKE_EXTRA_INCLUDE_FILES)
 
+# C files still around, fetch flags from main configuration
+set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS}")
+
 if(HAS_FCNTL)
     add_definitions(-DHAS_FCNTL=1)
 endif()
