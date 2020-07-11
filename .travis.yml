@@ -44,7 +44,7 @@ matrix:
             - sdl2_image
             - sdl2_mixer
             - glew
-          update: false
+          update: true
       script: bash -xe ci/build-mac.sh
 
     - name: Windows (x86_64) release (crossbuild from Ubuntu bionic x86_64, MinGW-w64)
