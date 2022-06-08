@@ -115,7 +115,7 @@ void quit()                  // normal exit
     exit(EXIT_SUCCESS);
 }
 
-volatile int errors = 0;
+int errors = 0;
 void fatal(const char *s, ...)    // failure exit
 {
     if(++errors <= 2) // print up to one extra recursive error
