@@ -146,7 +146,9 @@ namespace ai
 
     int weappref(gameent *d)
     {
-        if(d->loadweap.length()) return d->loadweap[0];
+        if (!d->loadweap.empty())
+            return d->loadweap.front();
+
         return m_weapon(d->actortype, game::gamemode, game::mutators);
     }
 
@@ -225,8 +227,8 @@ namespace ai
         if((d->actortype = at) >= A_ENEMY) d->type = ENT_AI;
         else
         {
-            d->loadweap.shrink(0);
-            loopv(lweaps) d->loadweap.add(lweaps[i]);
+            d->loadweap.clear();
+            loopv(lweaps) d->loadweap.emplace_back(lweaps[i]);
         }
         d->setname(name);
         d->spawnpoint = et;
