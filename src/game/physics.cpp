@@ -1055,7 +1055,7 @@ namespace physics
             if(curmat == MAT_WATER || oldmat == MAT_WATER)
             {
                 const bvec &watercol = getwatercol((curmat == MAT_WATER ? matid : pl->inmaterial) & MATF_INDEX);
-                mattrig(bottom, watercol, 0.5f, int(radius), PHYSMILLIS, 0.25f, PART_SPARK, curmat != MAT_WATER ? S_SPLASH2 : S_SPLASH1);
+                mattrig(bottom, watercol, 0.5f, int(radius), PHYSMILLIS, 0.25f, PART_SPARK, (curmat != MAT_WATER ? S_SPLASH2 : S_SPLASH1));
             }
             if(curmat == MAT_LAVA)
             {
